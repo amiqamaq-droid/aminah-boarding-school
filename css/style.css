@@ -1,9 +1,4 @@
-/* ========================================
-   AMINAH BOARDING SCHOOL - COMPLETE CSS
-   ======================================== */
-
-/* Reset & Base Styles */
-* {
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,28 +21,39 @@ body {
     overflow-x: hidden;
 }
 
+/* Smooth Scroll */
 html {
     scroll-behavior: smooth;
 }
 
-/* ========================================
-   NAVIGATION
-   ======================================== */
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
     background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
+    /* Default: Transparan untuk Hero */
+    background: transparent;
+    /*backdrop-filter: blur(10px);*/
     box-shadow: 0 2px 20px var(--shadow);
     z-index: 1000;
     transition: all 0.3s;
 }
 
+/* Class ini ditambahkan via JS saat scroll - dari claude */
+nav.scrolled {
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px var(--shadow);
+    padding: 0.8rem 0;
+}
+
+/*
 nav.scrolled {
     background: var(--white);
     box-shadow: 0 4px 30px var(--shadow);
 }
+*/
 
 .nav-container {
     max-width: 1200px;
@@ -99,8 +105,7 @@ a.logo-icon {
     position: relative;
 }
 
-.nav-links a:hover, 
-.nav-links a.active {
+.nav-links a:hover, .nav-links a.active {
     color: var(--primary);
 }
 
@@ -115,11 +120,27 @@ a.logo-icon {
     transition: width 0.3s;
 }
 
-.nav-links a:hover::after, 
-.nav-links a.active::after {
+.nav-links a:hover::after, .nav-links a.active::after {
     width: 100%;
 }
 
+.cta-btn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(10, 92, 61, 0.3);
+}
+
+/* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -127,20 +148,19 @@ a.logo-icon {
     font-size: 1.8rem;
     color: var(--primary);
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1001; /* Pastikan di atas menu overlay */
 }
 
-/* ========================================
-   SALAM SECTION
-   ======================================== */
+/* Assalamualaikum & Bismillah Section */
 .salam-section {
     padding: 2rem 0 0.5rem;
     text-align: center;
     background: white;
     margin-top: 90px;
-    display: none; /* Dinonaktifkan */
+    display: flex;
     flex-direction: column;
     align-items: center;
+    display: none; /* non aktifkan */
 }
 
 .salam-text {
@@ -149,6 +169,8 @@ a.logo-icon {
     height: auto;
     opacity: 0.9;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .bismillah-text {
@@ -157,16 +179,16 @@ a.logo-icon {
     height: auto;
     opacity: 0.9;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
     margin-top: -80px;
     margin-bottom: -20px;
 }
 
-/* ========================================
-   HERO SECTION
-   ======================================== */
+/* Hero Section */
 .hero {
     position: relative;
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,7 +197,7 @@ a.logo-icon {
     background: url(../assets/images/hero-pesantren.png);
     background-size: cover;
     background-position: center;
-    margin-top: 90px;
+    /* background-attachment: no-repeat; (Hapus atau ganti ke scroll/fixed) */
 }
 
 .hero-bg {
@@ -220,18 +242,40 @@ a.logo-icon {
     height: auto;
     margin-bottom: 3rem;
     filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
-    display: none; /* Dinonaktifkan */
+    animation: fadeInUp 1s ease-out;
+    display: none; /* non aktifkan */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    color: var(--secondary);
+    font-weight: 600;
 }
 
 .hero-buttons {
-    display: none; /* Dinonaktifkan */
+    display: flex;
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+    display: none;
 }
 
-.btn-primary, 
-.btn-secondary {
+.btn-primary, .btn-secondary {
     padding: 1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -263,9 +307,7 @@ a.logo-icon {
     color: var(--primary);
 }
 
-/* ========================================
-   SECTION STYLES
-   ======================================== */
+/* Section Styles */
 section {
     padding: 5rem 2rem;
 }
@@ -305,9 +347,7 @@ section {
     font-size: 1.1rem;
 }
 
-/* ========================================
-   STATS SECTION
-   ======================================== */
+/* Stats Section */
 .stats {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
@@ -337,9 +377,7 @@ section {
     opacity: 0.9;
 }
 
-/* ========================================
-   PROGRAMS SECTION
-   ======================================== */
+/* Jenjang Pendidikan Cards (Programs) */
 .programs {
     background: var(--light);
 }
@@ -390,12 +428,10 @@ section {
     line-height: 1.8;
 }
 
-/* ========================================
-   FACILITIES SECTION WITH LIGHTBOX
-   ======================================== */
+/* Facilities */
 .facilities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -405,25 +441,13 @@ section {
     border-radius: 15px;
     overflow: hidden;
     height: 300px;
+    background: #ddd;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 5px 20px var(--shadow);
+    transition: transform 0.3s;
 }
 
 .facility-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-
-.facility-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.facility-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .facility-overlay {
@@ -431,177 +455,17 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     padding: 2rem;
     color: white;
-    transition: padding 0.3s;
 }
 
-.facility-card:hover .facility-overlay {
-    padding: 2.5rem;
-}
-
-.facility-overlay h3 {
+.facility-card h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--secondary);
 }
 
-.facility-overlay p {
-    font-size: 0.95rem;
-    opacity: 0.95;
-}
-
-.view-icon {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255,255,255,0.9);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    font-size: 1.2rem;
-    opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
-    z-index: 10;
-}
-
-.facility-card:hover .view-icon {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Lightbox Gallery */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 9999;
-    animation: fadeIn 0.3s;
-}
-
-.lightbox.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    animation: zoomIn 0.3s;
-}
-
-@keyframes zoomIn {
-    from { transform: scale(0.8); }
-    to { transform: scale(1); }
-}
-
-.lightbox-content img {
-    max-width: 100%;
-    max-height: 85vh;
-    border-radius: 10px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-
-.lightbox-caption {
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: white;
-    font-size: 1.2rem;
-    padding: 1rem;
-    background: rgba(0,0,0,0.7);
-    border-radius: 8px;
-}
-
-.lightbox-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.3);
-    color: white;
-    font-size: 2rem;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-btn:hover {
-    background: rgba(255,255,255,0.4);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.lightbox-prev {
-    left: 2rem;
-}
-
-.lightbox-next {
-    right: 2rem;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.3);
-    color: white;
-    font-size: 2rem;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-close:hover {
-    background: rgba(255,255,255,0.4);
-    transform: rotate(90deg) scale(1.1);
-}
-
-.lightbox-counter {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    color: white;
-    font-size: 1.2rem;
-    background: rgba(0,0,0,0.6);
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    backdrop-filter: blur(10px);
-}
-
-/* ========================================
-   KEUNGGULAN SECTION
-   ======================================== */
+/* Keunggulan */
 .keunggulan {
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
 }
@@ -640,9 +504,7 @@ section {
     flex-shrink: 0;
 }
 
-/* ========================================
-   CTA SECTION
-   ======================================== */
+/* CTA Section */
 .cta-section {
     background: linear-gradient(135deg, var(--primary-dark), var(--primary));
     color: white;
@@ -661,9 +523,7 @@ section {
     opacity: 0.95;
 }
 
-/* ========================================
-   CONTACT SECTION
-   ======================================== */
+/* Contact */
 .contact {
     background: var(--light);
 }
@@ -717,9 +577,7 @@ section {
     color: var(--primary);
 }
 
-/* ========================================
-   MAP SECTION
-   ======================================== */
+/* Map Section */
 .map-section {
     padding: 0;
 }
@@ -735,9 +593,7 @@ section {
     border: 0;
 }
 
-/* ========================================
-   FOOTER
-   ======================================== */
+/* Footer */
 footer {
     background: var(--primary-dark);
     color: white;
@@ -841,16 +697,13 @@ footer {
     margin: 0.5rem 0;
 }
 
-/* ========================================
-   ABOUT PAGE (Tentang Kami)
-   ======================================== */
-.page-header {
-    padding-top: 150px;
-    background: linear-gradient(rgba(10, 92, 61, 0.9), rgba(10, 92, 61, 0.9)), url('../assets/images/hero-pesantren.png');
-    background-size: cover;
-    color: white;
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
+/* Custom CSS for About Page (Visi Misi) */
 .visi-misi ul {
     list-style: none;
     padding-left: 0;
@@ -879,19 +732,18 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-/* ========================================
-   MOBILE RESPONSIVE
-   ======================================== */
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    /* Mobile Menu */
+    /* Mobile Menu Overlay */
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Di bawah navbar */
         left: 0;
         width: 100%;
-        background: var(--primary);
+        background: var(--primary); /* Latar belakang menu mobile */
         box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         padding: 1.5rem 0;
         text-align: center;
@@ -901,7 +753,7 @@ footer {
         transform: translateY(-10px);
     }
     
-    .nav-links.active {
+    .nav-links.active { /* Class diaktifkan via JS */
         display: flex;
         opacity: 1;
         pointer-events: auto;
@@ -913,25 +765,26 @@ footer {
     }
 
     .nav-links a {
-        color: var(--white);
+        color: var(--white); /* Warna teks menu di mobile */
         font-size: 1.2rem;
         padding: 0.5rem 0;
         display: block;
     }
     
-    .nav-links a:hover, 
-    .nav-links a.active {
+    .nav-links a:hover, .nav-links a.active {
         color: var(--secondary);
     }
     
     .nav-links a::after {
-        display: none;
+        display: none; /* Hilangkan efek underline di mobile */
     }
+
 
     .mobile-menu-btn {
         display: block;
     }
 
+    /* Penyesuaian Logo Navigasi Mobile */
     .nav-container .logo-icon img {
         width: 50px;
         height: 50px;
@@ -941,12 +794,26 @@ footer {
         font-size: 1rem;
     }
 
-    /* Hero Section */
+
+    .salam-section {
+        margin-top: 70px;
+        padding: 1.5rem 0 0.3rem;
+    }
+
+    .salam-text {
+        max-width: 250px;
+    }
+    
+    .bismillah-text {
+        max-width: 300px;
+        margin-top: -40px;
+    }
+
+    /* Hero Section Mobile FIX */
     .hero {
-        min-height: 60vh;
+        min-height: 60vh; /* Dikurangi agar tidak terlalu besar */
         padding: 1rem;
         background-attachment: scroll;
-        margin-top: 70px;
     }
 
     .hero-content {
@@ -960,7 +827,31 @@ footer {
         margin-bottom: 2rem;
     }
 
-    /* Sections */
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .facilities-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .section-title {
         font-size: 1.8rem;
     }
@@ -973,72 +864,21 @@ footer {
         font-size: 2.5rem;
     }
 
-    /* Buttons */
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .btn-primary, 
-    .btn-secondary {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 250px;
-    }
-
-    /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
     }
-
-    /* Lightbox Mobile */
-    .lightbox-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-
-    .lightbox-prev {
-        left: 1rem;
-    }
-
-    .lightbox-next {
-        right: 1rem;
-    }
-
-    .lightbox-close {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-        top: 1rem;
-        right: 1rem;
-    }
-
-    .lightbox-counter {
-        font-size: 1rem;
-        padding: 0.6rem 1.2rem;
-        top: 1rem;
-        left: 1rem;
-    }
-
-    .lightbox-caption {
-        font-size: 1rem;
-        bottom: -40px;
-    }
-
-    /* About Page */
+    
     .content-block h2 {
         font-size: 1.5rem;
     }
-
-    .sejarah-filosofi .container {
+    
+    /* --- FIX KHUSUS TENTANG KAMI --- */
+    .sejarah-filosofi .container { /* FIX: Penambahan titik (.) */
         flex-direction: column;
     }
 
     .vm-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr !important; /* Misi Visi menjadi tumpuk di mobile */
     }
 
     .leader-card {
@@ -1054,31 +894,16 @@ footer {
         width: 100px !important;
         height: 120px !important;
     }
-
-    /* Salam Section Mobile */
-    .salam-section {
-        margin-top: 70px;
-        padding: 1.5rem 0 0.3rem;
-    }
-
-    .salam-text {
-        max-width: 250px;
-    }
-    
-    .bismillah-text {
-        max-width: 300px;
-        margin-top: -40px;
-    }
 }
 
-/* Tablet */
+/* Tablet dan screen sedang */
 @media (max-width: 1024px) and (min-width: 769px) {
     .hero-logo {
         max-width: 400px;
     }
 }
 
-/* Small Mobile */
+/* Screen sangat kecil */
 @media (max-width: 480px) {
     .hero-logo {
         max-width: 240px;
@@ -1091,8 +916,23 @@ footer {
     .bismillah-text {
         max-width: 250px;
     }
+}
+    }
+    
+    .sejarah-filosofi .container {
+        flex-direction: column;
+    }
 
-    .facility-card {
-        height: 250px;
+    .vm-grid {
+        grid-template-columns: 1fr !important; /* Misi Visi menjadi tumpuk di mobile */
+    }
+
+    .leader-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .leader-photo {
+        margin: 0 auto;
     }
 }
