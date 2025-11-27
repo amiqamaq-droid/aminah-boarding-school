@@ -321,6 +321,340 @@ section {
 }
 
 /* ========================================
+   PROGRAM UNGGULAN - SIMPLE ELEGANT
+   ======================================== */
+.program-unggulan {
+    background: var(--white);
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.program-unggulan::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+}
+
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.program-item {
+    background: linear-gradient(135deg, var(--white) 0%, #fafafa 100%);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.program-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.program-item:hover::before {
+    left: 100%;
+}
+
+.program-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 45px rgba(10, 92, 61, 0.15);
+    border-color: var(--secondary);
+}
+
+.program-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(10, 92, 61, 0.3);
+    transition: all 0.3s ease;
+}
+
+.program-item:hover .program-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(10, 92, 61, 0.4);
+}
+
+.program-icon-wrapper i {
+    font-size: 3rem;
+    color: var(--secondary);
+}
+
+.program-item h3 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.program-item p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.program-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+    text-align: left;
+}
+
+.program-features li {
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.program-features li i {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.program-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary), #c9a030);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+}
+
+/* Responsive untuk Program Unggulan */
+@media (max-width: 992px) {
+    .program-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .program-cards {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .program-item {
+        padding: 2.5rem 2rem;
+    }
+
+    .program-icon-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .program-icon-wrapper i {
+        font-size: 2.5rem;
+    }
+
+    .program-item h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* ========================================
+   PROGRAM UNGGULAN - SIMPLE ELEGANT
+   ======================================== */
+.program-unggulan {
+    background: var(--white);
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.program-unggulan::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+}
+
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.program-item {
+    background: linear-gradient(135deg, var(--white) 0%, #fafafa 100%);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.program-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.program-item:hover::before {
+    left: 100%;
+}
+
+.program-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 45px rgba(10, 92, 61, 0.15);
+    border-color: var(--secondary);
+}
+
+.program-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(10, 92, 61, 0.3);
+    transition: all 0.3s ease;
+}
+
+.program-item:hover .program-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(10, 92, 61, 0.4);
+}
+
+.program-icon-wrapper i {
+    font-size: 3rem;
+    color: var(--secondary);
+}
+
+.program-item h3 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.program-item p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.program-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+    text-align: left;
+}
+
+.program-features li {
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.program-features li i {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.program-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary), #c9a030);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+}
+
+/* Responsive untuk Program Unggulan */
+@media (max-width: 992px) {
+    .program-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .program-cards {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .program-item {
+        padding: 2.5rem 2rem;
+    }
+
+    .program-icon-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .program-icon-wrapper i {
+        font-size: 2.5rem;
+    }
+
+    .program-item h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* ========================================
    SECTION CTA (GLOBAL - Diterapkan ke Desktop & Mobile)
    ======================================== */
 .cta-section {
@@ -514,6 +848,89 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.visi-misi {
+    background-color: var(--light);
+}
+.vm-content-simple {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+    text-align: left;
+}
+.vm-content-simple h3 {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    border-left: 5px solid var(--secondary);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   SECTION PROGRAM & FASILITAS UTAMA
+   ======================================== */
+.program-fasilitas-section {
+    background: var(--primary);
+    padding: 5rem 2rem;
+    color: var(--white);
+}
+
+.program-fasilitas-section .section-title {
+    color: var(--secondary);
+}
+
+.program-fasilitas-section .section-title::after {
+    background: var(--secondary);
+}
+
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.card-feature {
+    background: var(--white);
+    color: var(--text);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.card-feature:hover {
+    transform: translateY(-5px);
+}
+
+.subsection-title {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.card-feature ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card-feature ul li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.card-feature ul li i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
 /* ========================================
    RESPONSIVE DESIGN (MOBILE & TABLET)
    ======================================== */
@@ -570,4 +987,73 @@ footer {
     
     .section-title { font-size: 1.8rem; }
     .cta-section h2 { font-size: 2rem; }
+
+/* ========================================
+   FIX PAKSA CSS UNTUK PROGRAM & FASILITAS
+   (Gunakan ID untuk Spesifisitas Tertinggi)
+   ======================================== */
+
+/* BACKGROUND SECTION HIJAU */
+#program-fasilitas { 
+    background: var(--primary) !important; /* Paksa Background Hijau */
+    color: var(--white); 
+    padding: 5rem 2rem;
+}
+
+/* JUDUL SECTION HIJAU */
+#program-fasilitas .section-title {
+    color: var(--secondary) !important; /* Judul utama section warna kuning */
+}
+#program-fasilitas .section-title::after {
+    background: var(--secondary) !important; /* Garis bawah judul warna kuning */
+}
+
+/* KARTU PUTIH */
+#program-fasilitas .card-feature {
+    background: var(--white) !important;
+    /*PaksaCardMenjadiPutih*/color: var(--text) !important;
+    /*PaksaTextCardMenjadiGelap*/padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    height: 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+/* LIST ITEM DI DALAM CARD */
+#program-fasilitas .card-feature li i.fa-check-circle {
+    color: var(--primary) !important; /* Icon checklist warna hijau */
+}
+
+/* GRID DESKTOP (BERJEJER) */
+#program-fasilitas .grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+
+/* RESPONSIVE MOBILE (BERTUMPUK) */
+@media (max-width: 768px) {
+    #program-fasilitas .grid-2-cols {
+        grid-template-columns: 1fr !important; /* Paksa Tumpuk di Mobile */
+        gap: 2.5rem;
+    }
+    .grid-2-cols {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .card-feature {
+        padding: 2rem;
+    }
+    
+    .subsection-title {
+        font-size: 1.5rem;
+    }
+}
 }
