@@ -149,3 +149,138 @@ if (lightbox) {
         if(e.target === lightbox) lightbox.classList.remove('active');
     });
 }
+
+// ========================================
+// GALLERY MODAL UNTUK FASILITAS
+// ========================================
+
+// Data gambar untuk setiap fasilitas
+const facilityGalleries = {
+    masjid: [
+        { src: 'assets/images/mesjid.jpg', caption: 'Masjid Islamic Center - Tampak Depan' },
+        { src: 'assets/images/mesjid-2.jpg', caption: 'Interior Masjid' },
+        { src: 'assets/images/mesjid-3.jpg', caption: 'Ruang Sholat' }
+    ],
+    sekolah: [
+        { src: 'assets/images/gedung-sekolah.jpg', caption: 'Gedung Sekolah - Tampak Luar' },
+        { src: 'assets/images/gedung-sekolah-2.jpg', caption: 'Ruang Kelas' },
+        { src: 'assets/images/gedung-sekolah-3.jpg', caption: 'Laboratorium' }
+    ],
+    asrama: [
+        { src: 'assets/images/gedung-asrama.png', caption: 'Gedung Asrama - Tampak Depan' },
+        { src: 'assets/images/gedung-asrama-2.jpg', caption: 'Kamar Santri' },
+        { src: 'assets/images/gedung-asrama-3.jpg', caption: 'Area Bersama' }
+    ],
+    perpustakaan: [
+        { src: 'assets/images/perpustakaan.jpg', caption: 'Perpustakaan - Ruang Baca' },
+        { src: 'assets/images/perpustakaan-2.jpg', caption: 'Koleksi Buku' },
+        { src: 'assets/images/perpustakaan-3.jpg', caption: 'Area Studi' }
+    ]
+};
+
+let currentGallery = [];
+let currentIndex = 0;
+
+// Fungsi untuk membuka gallery
+function openGallery(facilityType, startIndex = 0) {
+    currentGallery = facilityGalleries[facilityType] || [];
+    currentIndex = startIndex;
+    
+    if (currentGallery.length === 0) return;
+    
+    const modal = document.getElementById('galleryModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    
+    updateGalleryImage();
+}
+
+// Fungsi untuk menutup gallery
+function closeGallery() {
+    const modal = document.getElementById('galleryModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Fungsi untuk update gambar
+function updateGalleryImage() {
+    const img = document.getElementById('galleryImage');
+    const caption = document.getElementById('galleryCaption');
+    const counter = document.getElementById('galleryCounter');
+    
+    if (currentGallery[currentIndex]) {
+        img.src = currentGallery[currentIndex].src;
+        caption.textContent = currentGallery[currentIndex].caption;
+        counter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+    }
+    
+    // Update thumbnail active state
+    updateThumbnails();
+}
+
+// Fungsi navigasi
+function nextImage() {
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    updateGalleryImage();
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    updateGalleryImage();
+}
+
+function goToImage(index) {
+    currentIndex = index;
+    updateGalleryImage();
+}
+
+// Fungsi untuk update thumbnails
+function updateThumbnails() {
+    const container = document.getElementById('thumbnailContainer');
+    container.innerHTML = '';
+    
+    currentGallery.forEach((item, index) => {
+        const thumb = document.createElement('div');
+        thumb.className = `gallery-thumbnail ${index === currentIndex ? 'active' : ''}`;
+        thumb.style.backgroundImage = `url('${item.src}')`;
+        thumb.onclick = () => goToImage(index);
+        container.appendChild(thumb);
+    });
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('galleryModal');
+    if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') closeGallery();
+    }
+});
+
+// Initialize facility cards click events
+document.addEventListener('DOMContentLoaded', () => {
+    const facilityCards = document.querySelectorAll('.facility-card');
+    
+    facilityCards.forEach((card, index) => {
+        const facilityTypes = ['masjid', 'sekolah', 'asrama', 'perpustakaan'];
+        const facilityType = facilityTypes[index];
+        
+        // Add click cursor
+        card.style.cursor = 'pointer';
+        
+        // Add click event
+        card.addEventListener('click', () => {
+            openGallery(facilityType, 0);
+        });
+        
+        // Add visual feedback
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'scale(1.05)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'scale(1)';
+        });
+    });
+});

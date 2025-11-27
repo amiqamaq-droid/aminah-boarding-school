@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pesantren Putra Aminah Boarding School - Pendidikan Islam berkualitas dengan program Tahfidz, Bahasa Arab & Inggris, berasrama di Jakarta Timur.">
     <title>Aminah Boarding School - Pesantren Putra Jakarta Timur</title>
-    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -292,6 +293,27 @@
             <p>Website Developed by <strong>Zalvatech</strong></p>
         </div>
     </footer>
+    <div id="galleryModal" class="gallery-modal" onclick="if(event.target.id==='galleryModal') closeGallery()">
+
+    <div class="gallery-content">
+        <button class="gallery-close" onclick="closeGallery()">&times;</button>
+        
+        <div class="gallery-image-container">
+            <button class="gallery-nav gallery-prev" onclick="prevImage()">&#10094;</button>
+            
+            <img id="galleryImage" class="gallery-image" src="" alt="Fasilitas">
+            
+            <button class="gallery-nav gallery-next" onclick="nextImage()">&#10095;</button>
+        </div>
+
+        <div id="galleryCaption" class="gallery-caption"></div>
+        <div id="galleryCounter" class="gallery-counter"></div>
+
+        <div id="thumbnailContainer" class="gallery-thumbnails"></div>
+    </div>
+
+</div>
+
 
     <script src="js/script.js"></script>
 </body>
