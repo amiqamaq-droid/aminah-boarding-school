@@ -94,6 +94,27 @@ nav {
     color: var(--secondary);
 }
 
+/* --- PENAMBAHAN: STYLING TOMBOL PENDAFTARAN (DEFAULT/TRANSPARAN) --- */
+.nav-links .btn-daftar {
+    background: var(--secondary); /* Warna background kuning */
+    color: var(--primary-dark); /* Warna teks hijau gelap */
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-left: 1rem; /* Beri jarak sedikit dari link lain */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-shadow: none; /* Hilangkan shadow teks */
+    transition: all 0.3s;
+}
+
+.nav-links .btn-daftar:hover {
+    background: #c9a030; /* Sedikit lebih gelap saat hover */
+    color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+/* --- AKHIR PENAMBAHAN STYLING TOMBOL PENDAFTARAN (DEFAULT) --- */
+
+
 /* Tombol Mobile Default (Putih) */
 .mobile-menu-btn {
     display: none;
@@ -125,6 +146,21 @@ nav.scrolled .nav-links a {
 nav.scrolled .nav-links a:hover {
     color: var(--primary);
 }
+
+/* --- PENAMBAHAN: STYLING TOMBOL PENDAFTARAN (SCROLLED/PUTIH) --- */
+nav.scrolled .nav-links .btn-daftar {
+    background: var(--primary); /* Warna background Hijau */
+    color: var(--white); /* Warna teks Putih */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-shadow: none;
+}
+
+nav.scrolled .nav-links .btn-daftar:hover {
+    background: var(--primary-dark); /* Lebih gelap saat hover */
+    color: var(--white);
+}
+/* --- AKHIR PENAMBAHAN STYLING TOMBOL PENDAFTARAN (SCROLLED) --- */
+
 
 nav.scrolled .mobile-menu-btn {
     color: var(--primary); /* Jadi Hijau */
@@ -726,6 +762,10 @@ footer {
     color: white;
     padding: 3rem 0 1rem;
     font-size: 0.95rem;
+}
+
+.leader-info{
+    text-align: center;
 }
 
 .footer-content {
