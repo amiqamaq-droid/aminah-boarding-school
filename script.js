@@ -14,6 +14,76 @@ if(navbar) {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Ambil semua tautan navigasi
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    // 2. Ambil semua section (target dari tautan)
+    // Filter untuk hanya memilih section yang memiliki ID yang relevan dengan menu
+    const sections = Array.from(navLinks)
+        .filter(link => link.getAttribute('href').startsWith('#') && link.getAttribute('href') !== '#home')
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(section => section !== null); // Pastikan section ada
+
+    // Ambil Section Hero (untuk link Beranda)
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        sections.unshift(homeSection); // Tambahkan Beranda di awal
+    }
+
+
+    function updateActiveLink() {
+        // Ambil posisi scroll saat ini
+        const scrollPosition = window.scrollY;
+
+        // Loop melalui setiap section untuk menentukan mana yang aktif
+        let activeSectionId = '';
+        
+        // Loop terbalik agar jika ada overlap, section terbawah (terdekat ke atas) yang diprioritaskan
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const currentSection = sections[i];
+            
+            // Dapatkan posisi atas section relatif ke viewport
+            // Gunakan offset yang disesuaikan (misalnya, tinggi navbar + sedikit lebih)
+            const sectionTop = currentSection.offsetTop - 150; 
+
+            // Cek apakah posisi scroll sudah melewati bagian atas section
+            if (scrollPosition >= sectionTop) {
+                activeSectionId = '#' + currentSection.id;
+                break; // Hentikan loop karena kita sudah menemukan section teratas yang aktif
+            }
+        }
+
+        // Jika section aktif ditemukan:
+        if (activeSectionId) {
+            navLinks.forEach(link => {
+                link.classList.remove('active-link'); // Hapus dari semua link
+                
+                // Jika href link sesuai dengan ID section yang aktif
+                if (link.getAttribute('href') === activeSectionId) {
+                    link.classList.add('active-link'); // Tambahkan ke link yang sesuai
+                }
+            });
+        } 
+        
+        // Penanganan kasus di mana scroll berada di atas Hero (Beranda)
+        else if (homeSection && scrollPosition < homeSection.offsetTop - 150) {
+             navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href') === '#home') {
+                    link.classList.add('active-link');
+                }
+            });
+        }
+    }
+
+    // Panggil fungsi saat terjadi scroll
+    window.addEventListener('scroll', updateActiveLink);
+    
+    // Panggil sekali saat dimuat untuk mengatur state awal
+    updateActiveLink(); 
+});
+
 // 2. Mobile Menu Toggle
 const mobileBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
