@@ -325,6 +325,23 @@ section {
     display: block;
 }
 
+/* KODE BARU/MODIFIKASI: Mengatur ukuran dan ketebalan judul (ULA, WUSTHA, ULYA) */
+.program-card h3 {
+    font-size: 1.8rem; /* Membuat lebih besar dari paragraf (standar 1rem) */
+    font-weight: 900; /* Membuat sangat tebal */
+    color: var(--primary-dark); /* Agar menonjol dengan warna gelap */
+    margin-bottom: 0.5rem; /* Memberi jarak minimal dengan paragraf pertama di bawahnya */
+}
+
+/* KODE BARU: Mengatur gaya untuk paragraf di dalam program-card */
+.program-card p {
+    font-size: 1rem; /* Ukuran paragraf standar (lebih kecil dari h3) */
+    font-weight: 500; /* Tidak terlalu tebal */
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 0.3rem; /* Jarak antar baris paragraf */
+}
+
 /* Facilities */
 .facilities {
     position: relative;
