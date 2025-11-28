@@ -675,13 +675,13 @@ footer {
     font-style: italic;
     opacity: 0.8;
     margin-bottom: 1.5rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
     display: block;
     font-size: 0.9rem;
     line-height: 1.4;
 }
 .footer-contact-info p {
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-bottom: 0.8rem;
     display: flex;
     align-items: flex-start;
@@ -741,7 +741,6 @@ footer {
 
 .footer-socials {
     margin-top: 200px; ;
-    margin-right: 80px;
     display: flex;
     justify-content: center;
     gap: 1.2rem;
@@ -803,6 +802,10 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ========================================
+   VISI - MISI
+   ======================================== */
+
 .visi-misi {
     background-color: var(--light);
     position: relative;
@@ -838,7 +841,7 @@ footer {
    ======================================== */
 .program-fasilitas-section {
     background: var(--white); /* Latar belakang menjadi putih */
-    padding: 5rem 2rem;
+    padding: 5rem 2rem 3rem 2rem;
     color: var(--text); /* Warna teks menjadi gelap */
     text-align: center;
     position: relative;
@@ -939,9 +942,32 @@ footer {
     flex-shrink: 0;
 }
 
+.tenaga-pendidik .section-title {
+    position: static;
+    left: auto;
+    transform: none;
+}
+
+.leader-info {
+    text-align: center;
+}
+
+.leader-info h3 {
+    text-align: center;
+}
+
 .tenaga-pendidik {
-    padding: 1rem 0; /* atau margin-top: 5rem; */ 
+    padding-top: 0; 
+    padding-left: 0; 
+    padding-right: 0;    
     padding-bottom: 5%;
+    text-align: center;
+}
+
+.tenaga-pendidik p {
+    max-width: 900px;
+    margin: 1.5rem auto 3rem auto;
+    line-height: 1.8;
 }
 
 /* ========================================
@@ -1028,5 +1054,10 @@ footer {
     
     .clean-list li {
         font-size: 1rem;
+    }
+
+    .footer-socials {
+        margin-top: 0.5rem;
+        justify-content: center;
     }
 }
