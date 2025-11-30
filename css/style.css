@@ -204,6 +204,9 @@ nav.scrolled .nav-links li .active-link {
     /* Default Desktop Image */
     background: url('../assets/images/hero-pesantren-desktop.png') no-repeat center center;
     background-size: cover;
+    border-bottom: none !important; 
+    box-shadow: none !important;
+    margin-bottom: 0;
 }
 
 .hero-bg {
@@ -303,6 +306,78 @@ section {
     font-size: 1.1rem;
 }
 
+/* ========================================
+   SECTION: KATA SAMBUTAN STYLING
+   ======================================== */
+
+.sambutan-section {
+    padding: 80px 0; /* Jarak atas bawah normal */
+    background-color: var(--white); /* Latar putih agar kontras dengan hero */
+    text-align: center;
+    /* PERBAIKAN UTAMA: Mengatasi garis di bawah hero */
+    margin-top: -2px; /* Menarik section ini ke atas 2px */
+    position: relative; /* Penting untuk menjaga elemen di atas Hero */
+    z-index: 2; /* Menjamin elemen ini berada di lapisan atas (menutupi Hero) */
+}
+
+.arabic-greeting {
+    font-family: 'Times New Roman', Times, serif; /* Font yang lebih formal untuk Arab */
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    /* Membuat teks Arab rata kanan (penting untuk tampilan Arab) */
+    direction: rtl; 
+    text-align: center;
+}
+
+.sambutan-content {
+    max-width: 900px;
+    margin: 30px auto; /* Memberi jarak dan memusatkan konten utama */
+}
+
+.sambutan-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.sambutan-content .hadith {
+    font-style: italic;
+    color: var(--primary);
+    font-weight: 600;
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.sambutan-content .hadith strong {
+    font-style: normal;
+}
+
+.signature {
+    margin-top: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    .sambutan-section {
+        padding: 50px 0;
+    }
+
+    .arabic-greeting {
+        font-size: 1.5rem;
+    }
+
+    .sambutan-content p {
+        font-size: 1rem;
+    }
+}
+
 /* Programs Card */
 .programs { background: var(--light); }
 .program-grid {
@@ -323,6 +398,23 @@ section {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     display: block;
+}
+
+/* KODE BARU/MODIFIKASI: Mengatur ukuran dan ketebalan judul (ULA, WUSTHA, ULYA) */
+.program-card h3 {
+    font-size: 1.8rem; /* Membuat lebih besar dari paragraf (standar 1rem) */
+    font-weight: 900; /* Membuat sangat tebal */
+    color: var(--primary-dark); /* Agar menonjol dengan warna gelap */
+    margin-bottom: 0.5rem; /* Memberi jarak minimal dengan paragraf pertama di bawahnya */
+}
+
+/* KODE BARU: Mengatur gaya untuk paragraf di dalam program-card */
+.program-card p {
+    font-size: 1rem; /* Ukuran paragraf standar (lebih kecil dari h3) */
+    font-weight: 500; /* Tidak terlalu tebal */
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 0.3rem; /* Jarak antar baris paragraf */
 }
 
 /* Facilities */
@@ -835,6 +927,73 @@ footer {
     padding-left: 1rem;
     margin-bottom: 1rem;
 }
+
+/* ========================================
+   VIDEO SECTION STYLING (Untuk Tampilan Elegant & Responsive)
+   ======================================== */
+
+.video-section {
+    padding: 10px 0 60px 0; /* Jarak atas bawah */
+    background-color: var(--light); /* Asumsi warna terang dari variabel Anda */
+    text-align: center;
+}
+
+.video-section .section-title {
+    margin-bottom: 30px;
+    color: var(--primary-dark);
+    
+    /* 1. Override positioning style global agar tidak menyebabkan pergeseran: */
+    position: static; /* Nonaktifkan positioning relatif */
+    left: auto;
+    transform: none;
+    
+    /* 2. Terapkan centering standar untuk elemen block: */
+    display: block; /* Pastikan elemen berperilaku sebagai block */
+    width: fit-content; /* Batasi lebar judul sesuai isinya */
+    margin-left: auto; /* Pusatkan elemen block */
+    margin-right: auto;
+    
+    text-align: center; /* Untuk memastikan teks di dalamnya rata tengah */
+}
+
+.video-responsive {
+    /* Membatasi lebar video di desktop agar tidak terlalu besar */
+    max-width: 900px; 
+    
+    /* Memposisikan kontainer video di tengah halaman */
+    margin: 0 auto; 
+    
+    /* Teknik Responsive Aspect Ratio (Rasio 16:9) */
+    position: relative;
+    padding-bottom: 56.25%; /* 9 / 16 * 100% */
+    height: 0;
+    overflow: hidden;
+    
+    /* Efek Elegant: Sudut membulat dan bayangan */
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+}
+
+/* Menetapkan ukuran iframe agar mengisi penuh kontainer responsif */
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Menghilangkan border default iframe */
+}
+
+/* Responsiveness tambahan untuk ukuran layar sangat kecil */
+@media (max-width: 768px) {
+    .video-responsive {
+        /* Mengurangi padding-bottom sedikit untuk layar mobile */
+        padding-bottom: 56.25%; 
+        border-radius: 0; /* Hapus sudut membulat di mobile agar tampilan lebih full */
+    }
+}
+
+
 
 /* ========================================
    SECTION PROGRAM & FASILITAS UTAMA (SIMPLE ELEGANT)
