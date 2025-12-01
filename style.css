@@ -1162,11 +1162,13 @@ footer {
     
     /* Mobile Hero Fix (Load Gambar Khusus Mobile) */
     .hero {
-        min-height: 60vh;
+        height: auto;
+        min-height: 82vh;
         /* Menggunakan file .jpg yang diupload user */
         background-image: url('../assets/images/hero-pesantren-mobile.png') !important;
         background-position: top center;
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
     .hero-content {
