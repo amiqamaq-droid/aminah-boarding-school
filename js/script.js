@@ -169,7 +169,7 @@ function openTab(evt, tabName) {
 const lightbox = document.getElementById('lightbox');
 if (lightbox) {
     const facilities = [
-        { img: 'assets/images/gedung-asrama.png', title: 'Asrama', desc: 'Asrama Putra Nyaman.' },
+        { img: 'assets/images/gedung-asrama.jpg', title: 'Asrama', desc: 'Asrama Putra Nyaman.' },
         { img: 'assets/images/mesjid.jpg', title: 'Masjid Jami', desc: 'Pusat Ibadah.' },
         { img: 'assets/images/islamic-center.png', title: 'Gedung Olahraga', desc: 'Area Aktivitas Santri.' }
     ];
@@ -237,7 +237,7 @@ const facilityGalleries = {
         { src: 'assets/images/gedung-sekolah-3.jpg', caption: 'Laboratorium' }
     ],
     asrama: [
-        { src: 'assets/images/gedung-asrama.png', caption: 'Gedung Asrama - Tampak Depan' },
+        { src: 'assets/images/gedung-asrama.jpg', caption: 'Gedung Asrama - Tampak Depan' },
         { src: 'assets/images/gedung-asrama-2.jpg', caption: 'Kamar Santri' },
         { src: 'assets/images/gedung-asrama-3.jpg', caption: 'Area Bersama' }
     ],
